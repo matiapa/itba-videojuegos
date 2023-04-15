@@ -28,4 +28,8 @@ public class Enemy : MonoBehaviour {
             Destroy(gameObject);
     }
 
+    public void setPathContainer(GameObject _pathContainer) {
+        pathContainer = _pathContainer;
+    }
+
 }

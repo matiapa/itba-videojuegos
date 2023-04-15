@@ -26,7 +26,8 @@ public class WaveSpawner : MonoBehaviour {
         Wave wave = waves[_waveIndex];
         
         for (int i = 0; i < wave.count; i++) {
-            Instantiate(wave.enemy, transform.position, transform.rotation);
+            GameObject enemyObj = Instantiate(wave.enemy, transform.position, transform.rotation);
+            enemyObj.GetComponent<Enemy>().setPathContainer(wave.path);
             yield return new WaitForSeconds(1f / wave.rate);
         }
         
