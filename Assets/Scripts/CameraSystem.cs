@@ -9,7 +9,6 @@ public class CameraSystem : MonoBehaviour {
 
     private bool dragPanMoveActive;
     private Vector2 lastMousePosition;
-    private float targetFieldOfView = 50;
     private Vector3 followOffset;
 
 
@@ -60,7 +59,6 @@ public class CameraSystem : MonoBehaviour {
         float zoomSpeed = 10f;
         cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset =
             Vector3.Lerp(cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset, followOffset, Time.deltaTime * zoomSpeed);
-
     }
 
 }
