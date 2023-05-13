@@ -1,19 +1,20 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Strategy
-{
-    public interface IBullet
-    {
-        float Speed { get;  }
-        
-        // animacion o efecto al impactar
-        GameObject ImpactEffect { get; }
-        
-        IDamageable Target { get; }
-        
-        void Travel();
+public interface IBullet {
 
-        void OnCollisionEnter(Collision collision);
-    }
+    float Damage { get; }
+
+    float Speed { get;  }
+    
+    float LifeTime { get; }
+
+    GameObject ImpactEffect { get; }
+    
+    Vector3 Target { get; }
+
+    void Travel();
+
+    void OnCollisionEnter(Collision collision);
+
+    void SetTarget(Vector3 target);
 }

@@ -1,13 +1,7 @@
-﻿using UnityEngine;
+﻿public interface IDamageable {
+    float MaxLife { get; }
 
-namespace Strategy
-{
-    public interface IDamageable
-    {
-        int MaxLife { get; }
-        int CurrentLife { get; }
-        Transform Transform { get; }
+    float CurrentLife { get; }
 
-        void TakeDamage(int damage);
-    }
+    void TakeDamage(float damage);
 }

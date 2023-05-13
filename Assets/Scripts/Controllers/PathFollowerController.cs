@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-
+public class PathFollowerController : MonoBehaviour {
     [SerializeField] private float speed = 10f;
     [SerializeField] private GameObject pathContainer;
 
@@ -28,8 +25,7 @@ public class Enemy : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    public void setPathContainer(GameObject _pathContainer) {
+    public void SetPathContainer(GameObject _pathContainer) {
         pathContainer = _pathContainer;
     }
-
 }

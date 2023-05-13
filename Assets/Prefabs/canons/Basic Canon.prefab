@@ -57,23 +57,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f6b630159e6b34386dec2579f250b2, type: 3}
---- !u!1 &8840173886090755057 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 165880, guid: f4f6b630159e6b34386dec2579f250b2, type: 3}
-  m_PrefabInstance: {fileID: 8840173886090591241}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-4530044676994127073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840173886090755057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0992219c18a6833449f0c774ee5325a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 30
-  enemyTag: Enemy
-  turnSpeed: 10
