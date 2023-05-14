@@ -10,11 +10,11 @@ public interface IBullet {
 
     GameObject ImpactEffect { get; }
     
-    Vector3 Target { get; }
+    GameObject Target { get; }
 
     void Travel();
 
-    void OnCollisionEnter(Collision collision);
+    void OnTriggerEnter(Collider collider);
 
-    void SetTarget(Vector3 target);
+    void SetTarget(GameObject target);
 }

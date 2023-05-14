@@ -8,12 +8,14 @@ public class PathFollowerController : MonoBehaviour {
     private int _pathIndex = 0;
 
     void Start() {
-    	_points = new Transform[pathContainer.transform.childCount];
-        for (int i = 0; i < _points.Length; i++)
-	        _points[i] = pathContainer.transform.GetChild(i);
+        if (pathContainer)
+    	    SetPath(pathContainer);
     }
 		
     void Update() {
+        if (_points == null)
+            return;
+
 	    Vector3 dir = _points[_pathIndex].position - transform.position;
         
 	    transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
@@ -25,7 +27,11 @@ public class PathFollowerController : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    public void SetPathContainer(GameObject _pathContainer) {
+    public void SetPath(GameObject _pathContainer) {
         pathContainer = _pathContainer;
+        print("Path "+pathContainer);
+        _points = new Transform[pathContainer.transform.childCount];
+        for (int i = 0; i < _points.Length; i++)
+	        _points[i] = pathContainer.transform.GetChild(i);
     }
 }

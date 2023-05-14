@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
     private BasicLifeController _basicLifeController;
     private RangeAttackController _rangeAttackController;
 
-    void Start() {
+    void Awake() {
         _pathFollowerController = GetComponent<PathFollowerController>();
         _basicLifeController = GetComponent<BasicLifeController>();
         _rangeAttackController = GetComponent<RangeAttackController>();
@@ -17,7 +17,8 @@ public class Enemy : MonoBehaviour {
         _rangeAttackController.SetIsEnemy(true);
     }
 
-    public void SetPathContainer(GameObject _pathContainer) {
-       _pathFollowerController.SetPathContainer(_pathContainer);
+    public void SetPath(GameObject _pathContainer) {
+        print("Setting path");
+       _pathFollowerController.SetPath(_pathContainer);
     }
 }

@@ -17,6 +17,6 @@ public class BasicLifeController : MonoBehaviour, IDamageable {
         _currentLife -= damage;
         if (_currentLife <= 0)
             Destroy(this.gameObject);
-        print("Current life: "+_currentLife);
+        print(this.gameObject.name+" - Current life: "+_currentLife);
     }
 }

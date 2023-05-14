@@ -39,7 +39,7 @@ public class RangeAttackController : MonoBehaviour {
 
                 var bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
 
-                bullet.GetComponent<Bullet>().SetTarget(enemy.transform.position);
+                bullet.GetComponent<Bullet>().SetTarget(enemy);
             }
             
             _currentShotCooldown = _shotCooldown;

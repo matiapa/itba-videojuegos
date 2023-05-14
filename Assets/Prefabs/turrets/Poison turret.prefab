@@ -53,7 +53,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593773618191602232, guid: e080d0ae516ecb646bc2a8125522271b, type: 3}
       propertyPath: m_Name
-      value: Poison Canon
+      value: Poison turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e080d0ae516ecb646bc2a8125522271b, type: 3}
+--- !u!1 &1431095415359225958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6593773618191602232, guid: e080d0ae516ecb646bc2a8125522271b, type: 3}
+  m_PrefabInstance: {fileID: 5214481831151948382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3362081674741023552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431095415359225958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 10, z: 5}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &-7561042877177180773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431095415359225958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3194196c87a47fb5a9b34de0bf485081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxRange: 50
+  _shotCooldown: 0.5
+  _bulletPrefab: {fileID: 2382930891249438325, guid: 43289ff6a86d4abfaae9d9f68455bfa5, type: 3}
+  _isEnemy: 0
+--- !u!114 &-2767667735253395973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431095415359225958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac6f66eae73b209aa4e93a7e8e83700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxLife: 100
+  _fillRate: 0.2
+--- !u!114 &1154621292432340150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431095415359225958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed559b35ea3df16c391bce885edab8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

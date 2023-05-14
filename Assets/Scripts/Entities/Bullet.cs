@@ -4,39 +4,42 @@ using UnityEngine;
 public class Bullet : MonoBehaviour, IBullet
 {
     [SerializeField] private float _damage = 10f;
-    [SerializeField] private float _speed = 10f;
+    [SerializeField] private float _speed = 30f;
     [SerializeField] private float _lifetime = 5f;
-    [SerializeField] private List<int> _layerMasks;
     [SerializeField] private GameObject _impactEffect;
 
-    private Vector3 _target;
+    private GameObject _target;
 
     public float Damage => _damage;
     public float Speed => _speed;
     public float LifeTime => _lifetime;
     public GameObject ImpactEffect => _impactEffect;
-    public Vector3 Target => _target;
+    public GameObject Target => _target;
 
     public void Travel() {
-        Vector3 dir = _target - transform.position;
+        if(_target == null) {
+            Destroy(this.gameObject);
+            return;
+        }
         
-	    transform.Translate(dir.normalized * _speed * Time.deltaTime, Space.World);
+        Vector3 dir = _target.transform.position - transform.position;
+        
+        if (dir.magnitude > 1)
+	        transform.Translate(dir.normalized * _speed * Time.deltaTime, Space.World);
+        else if (dir.magnitude > 0)
+            transform.Translate(dir, Space.World);
     }
 
-    public void OnCollisionEnter(Collision collision) {
-        if (!_layerMasks.Contains(collision.gameObject.layer))
-            return;
-
-        IDamageable damagable = collision.gameObject.GetComponent<IDamageable>();
-        if (damagable != null)
+    public void OnTriggerEnter(Collider collider) {
+        IDamageable damagable = collider.gameObject.GetComponent<IDamageable>();
+        if (damagable != null) {
             EventQueueManager.instance.AddEvent(new CmdApplyDamage(damagable, _damage));
+        }
 
         if (_impactEffect != null) {
             GameObject effectIns = Instantiate(_impactEffect, transform.position, transform.rotation);
             Destroy(effectIns, 2.5f);
         }
-
-        Destroy(this.gameObject);
     }
 
     void Update() {
@@ -47,7 +50,7 @@ public class Bullet : MonoBehaviour, IBullet
             Destroy(this.gameObject);
     }
 
-    public void SetTarget(Vector3 newTarget) {
+    public void SetTarget(GameObject newTarget) {
         _target = newTarget;
     }
 }

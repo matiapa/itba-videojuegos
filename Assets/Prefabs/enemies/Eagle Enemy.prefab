@@ -62,6 +62,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1879581886640764, guid: 8a98dc7c3255b1f43b1885fecabf80f2, type: 3}
   m_PrefabInstance: {fileID: 9212349272323593715}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &3972140857919728748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213937827136464783}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.25, z: 0.5}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!95 &-7404012935099357269
 Animator:
   serializedVersion: 5
@@ -83,7 +96,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6977246025943755545
+--- !u!114 &305168040711373900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +105,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9213937827136464783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 868c4ed995829b4509c8611e2496d8d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 07d23788588feac98ac693b2192a6a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  pathContainer: {fileID: 0}
 --- !u!114 &669220873463173260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +120,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72508166f5cd189cb9d53446f5ef158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLife: 100
+  _maxLife: 50
+--- !u!114 &6977246025943755545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213937827136464783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868c4ed995829b4509c8611e2496d8d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  pathContainer: {fileID: 0}
 --- !u!114 &8528516242944178023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,18 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxRange: 10
-  _shotCooldown: 10
-  _bulletPrefab: {fileID: 0}
+  _shotCooldown: 2
+  _bulletPrefab: {fileID: 2382930891249438325, guid: e23dd98132a134f308b9829f103dd42d, type: 3}
   _isEnemy: 1
---- !u!114 &305168040711373900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9213937827136464783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07d23788588feac98ac693b2192a6a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

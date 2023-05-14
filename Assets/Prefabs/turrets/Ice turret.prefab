@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7037168033965201238, guid: 02432cf30fd81634e80e89ae8f4bebec, type: 3}
       propertyPath: m_Name
-      value: Ice Canon
+      value: Ice turret
       objectReference: {fileID: 0}
     - target: {fileID: 7037168033965498576, guid: 02432cf30fd81634e80e89ae8f4bebec, type: 3}
       propertyPath: m_RootOrder
@@ -57,3 +57,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02432cf30fd81634e80e89ae8f4bebec, type: 3}
+--- !u!1 &7938165697145633404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7037168033965201238, guid: 02432cf30fd81634e80e89ae8f4bebec, type: 3}
+  m_PrefabInstance: {fileID: 1117751075788860714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3307095151204583745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938165697145633404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 10, z: 5}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &-7858398391482927900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938165697145633404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3194196c87a47fb5a9b34de0bf485081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxRange: 50
+  _shotCooldown: 1
+  _bulletPrefab: {fileID: 2382930891249438325, guid: 796e1d750db1c569f9e97ceb8de3383c, type: 3}
+  _isEnemy: 0
+--- !u!114 &3040051363688288445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938165697145633404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac6f66eae73b209aa4e93a7e8e83700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxLife: 100
+  _fillRate: 0.2
+--- !u!114 &8813851348022657323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938165697145633404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed559b35ea3df16c391bce885edab8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
