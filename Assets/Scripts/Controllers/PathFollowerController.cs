@@ -29,7 +29,6 @@ public class PathFollowerController : MonoBehaviour {
 
     public void SetPath(GameObject _pathContainer) {
         pathContainer = _pathContainer;
-        print("Path "+pathContainer);
         _points = new Transform[pathContainer.transform.childCount];
         for (int i = 0; i < _points.Length; i++)
 	        _points[i] = pathContainer.transform.GetChild(i);

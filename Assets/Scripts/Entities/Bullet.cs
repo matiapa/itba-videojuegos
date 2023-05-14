@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour, IBullet
     public void Travel() {
         if(_target == null) {
             Destroy(this.gameObject);
+            // print("Destroyed due to missing target");
             return;
         }
         
@@ -31,6 +32,9 @@ public class Bullet : MonoBehaviour, IBullet
     }
 
     public void OnTriggerEnter(Collider collider) {
+        if(collider.gameObject != _target)
+            return;
+        
         IDamageable damagable = collider.gameObject.GetComponent<IDamageable>();
         if (damagable != null) {
             EventQueueManager.instance.AddEvent(new CmdApplyDamage(damagable, _damage));
@@ -40,14 +44,19 @@ public class Bullet : MonoBehaviour, IBullet
             GameObject effectIns = Instantiate(_impactEffect, transform.position, transform.rotation);
             Destroy(effectIns, 2.5f);
         }
+
+        Destroy(this.gameObject);
+        // print("Destroyed due to collision");
     }
 
     void Update() {
         Travel();
 
         _lifetime -= Time.deltaTime;
-        if (_lifetime <= 0)
+        if (_lifetime <= 0) {
             Destroy(this.gameObject);
+            // print("Destroyed due to lifetime");
+        }
     }
 
     public void SetTarget(GameObject newTarget) {

@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
-  _speed: 100
-  _lifetime: 1
+  _speed: 25
+  _lifetime: 5
   _impactEffect: {fileID: 0}
 --- !u!54 &-4796355985219314724
 Rigidbody:

@@ -37,7 +37,7 @@ public class RangeAttackController : MonoBehaviour {
                 Vector3 rotation = Quaternion.Lerp(this.transform.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
                 this.transform.rotation = Quaternion.Euler (0f, rotation.y, 0f);
 
-                var bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
+                var bullet = Instantiate(_bulletPrefab, transform.position + Vector3.forward, transform.rotation);
 
                 bullet.GetComponent<Bullet>().SetTarget(enemy);
             }

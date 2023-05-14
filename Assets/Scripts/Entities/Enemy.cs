@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour {
     }
 
     public void SetPath(GameObject _pathContainer) {
-        print("Setting path");
        _pathFollowerController.SetPath(_pathContainer);
     }
 }
