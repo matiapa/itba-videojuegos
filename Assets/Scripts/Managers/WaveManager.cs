@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class WaveSpawner : MonoBehaviour {
+public class WaveManager : MonoBehaviour {
 
     [SerializeField] private Wave[] waves;
     [SerializeField] private float timeBetweenWaves = 60f;
@@ -32,6 +32,19 @@ public class WaveSpawner : MonoBehaviour {
         }
         
         _waveIndex++;
+        EventManager.instance.WaveChange(_waveIndex, waves.Length);
+    }
+
+    [System.Serializable]
+    public class Wave {
+        public GameObject enemy;
+        public GameObject path;
+        public int count;
+        public float rate;
+        
+        public float Duration {
+            get { return count / rate; }
+        }
     }
 
 }
