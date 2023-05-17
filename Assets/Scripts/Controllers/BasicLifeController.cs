@@ -1,3 +1,4 @@
+using System.Collections;
 using Microlight.MicroBar;
 using UnityEngine;
 
@@ -25,8 +26,9 @@ public class BasicLifeController : MonoBehaviour, IDamageable {
         if (_hpBar != null)
             _hpBar.UpdateHealthBar(_currentLife);
 
-        if (_currentLife <= 0)
+        if (_currentLife <= 0) 
             Destroy(this.gameObject);
+            
         // print(this.gameObject.name+" - Current life: "+_currentLife);
     }
 }

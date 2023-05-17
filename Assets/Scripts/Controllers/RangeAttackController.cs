@@ -21,26 +21,29 @@ public class RangeAttackController : MonoBehaviour {
             _currentShotCooldown -= Time.deltaTime;
         
         if (_currentShotCooldown <= 0) {
-            GameObject[] enemies;
+            GameObject nearestEnemy;
             
             if (_isEnemy)
-                enemies = GameObject.FindObjectsOfType<Turret>().Select(enemy => enemy.gameObject).ToArray();
+                nearestEnemy = GameObject.FindObjectsOfType<Turret>().Select(enemy => enemy.gameObject)
+                    .Where(enemy => Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
+                    .FirstOrDefault();
             else
-                enemies = GameObject.FindObjectsOfType<Enemy>().Select(enemy => enemy.gameObject).ToArray();
+                nearestEnemy = GameObject.FindObjectsOfType<Enemy>().Select(enemy => enemy.gameObject)
+                    .Where(enemy => Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
+                    .FirstOrDefault();
             
-            enemies = enemies
-                .Where(enemy => Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
-                .ToArray();
+            if (nearestEnemy == null)
+                return;
 
-            foreach(GameObject enemy in enemies) {
-                Quaternion lookRotation = Quaternion.LookRotation(enemy.transform.position - transform.position);
-                Vector3 rotation = Quaternion.Lerp(this.transform.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
-                this.transform.rotation = Quaternion.Euler (0f, rotation.y, 0f);
+            Quaternion lookRotation = Quaternion.LookRotation(nearestEnemy.transform.position - transform.position);
+            Vector3 rotation = Quaternion.Lerp(this.transform.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
+            this.transform.rotation = Quaternion.Euler (0f, rotation.y, 0f);
 
-                var bullet = Instantiate(_bulletPrefab, transform.position + Vector3.forward, transform.rotation);
+            var bullet = Instantiate(_bulletPrefab, transform.position + Vector3.forward, transform.rotation);
 
-                bullet.GetComponent<Bullet>().SetTarget(enemy);
-            }
+            bullet.GetComponent<Bullet>().SetTarget(nearestEnemy);
+
+            EventManager.instance.Attack(this.gameObject);
             
             _currentShotCooldown = _shotCooldown;
         }

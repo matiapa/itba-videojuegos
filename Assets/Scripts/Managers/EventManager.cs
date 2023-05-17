@@ -12,7 +12,7 @@ public class EventManager : MonoBehaviour {
     public event Action<bool> OnGameOver;
     public event Action<int> OnCoinChange;
     public event Action<int, int> OnWaveChange;
-
+    public event Action<GameObject> OnAttack;
 
     public void GameOver(bool isVictory)  {
         if (OnGameOver != null) OnGameOver(isVictory);
@@ -24,5 +24,9 @@ public class EventManager : MonoBehaviour {
 
     public void WaveChange(int currentWave, int maxWave) {
         if (OnWaveChange != null) OnWaveChange(currentWave, maxWave);
+    }
+
+    public void Attack(GameObject attacker) {
+        if (OnAttack != null) OnAttack(attacker);
     }
 }
