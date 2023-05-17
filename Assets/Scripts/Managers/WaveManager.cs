@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour {
@@ -10,17 +11,19 @@ public class WaveManager : MonoBehaviour {
     private int _waveIndex = 0;
 
     void Update () {
-        if (_waveIndex == waves.Length)
-            this.enabled = false;
+        if (_waveIndex < waves.Length) {
+            if (_countdown <= 0f) {
+                StartCoroutine(SpawnWave());
+                _countdown = timeBetweenWaves + waves[_waveIndex].Duration;
+                return;
+            }
 
-        if (_countdown <= 0f) {
-            StartCoroutine(SpawnWave());
-            _countdown = timeBetweenWaves + waves[_waveIndex].Duration;
-            return;
+            _countdown -= Time.deltaTime;     
+        } else {            
+            if (GameObject.FindObjectsOfType<Enemy>().Length == 0)
+                EventManager.instance.GameOver(true);
         }
-
-        _countdown -= Time.deltaTime;
-    }
+    }    
     
     IEnumerator SpawnWave () {
         Wave wave = waves[_waveIndex];
@@ -28,6 +31,7 @@ public class WaveManager : MonoBehaviour {
         for (int i = 0; i < wave.count; i++) {
             GameObject enemyObj = Instantiate(wave.enemy, transform.position, transform.rotation);
             enemyObj.GetComponent<Enemy>().SetPath(wave.path);
+
             yield return new WaitForSeconds(1f / wave.rate);
         }
         

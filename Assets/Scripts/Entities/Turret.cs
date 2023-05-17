@@ -7,17 +7,16 @@ public class Turret : MonoBehaviour {
 
 	private FillingLifeController _fillingLifeController;
     private RangeAttackController _rangeAttackController;
-    private bool _isDeath;
-    public bool IsDeath => _fillingLifeController.IsDeath;
+    public bool IsDead => _fillingLifeController.IsDead;
     
-    [SerializeField] private AudioClip _canonShot;
     private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip _canonShot;
 
     void Start() {
         _fillingLifeController = GetComponent<FillingLifeController>();
         _rangeAttackController = GetComponent<RangeAttackController>();
         _audioSource = GetComponent<AudioSource>();
-        _isDeath = false;
         _rangeAttackController.SetIsEnemy(false);
 
         EventManager.instance.OnAttack += OnAttack;

@@ -13,12 +13,12 @@ public class Menus : MonoBehaviour
 
     public void Help() 
     {
-        SceneManager.LoadScene("Help");
+        SceneManager.LoadScene("HelpScene");
     }
 
     public void MainMenu() 
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MenuScene");
     }
 
 

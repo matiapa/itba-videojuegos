@@ -7,13 +7,15 @@ public class PathFollowerController : MonoBehaviour {
     private Transform[] _points;
     private int _pathIndex = 0;
 
+    public bool endReached => _pathIndex == _points.Length;
+
     void Start() {
         if (pathContainer)
     	    SetPath(pathContainer);
     }
 		
     void Update() {
-        if (_points == null)
+        if (_points == null || _pathIndex == _points.Length)
             return;
 
 	    Vector3 dir = _points[_pathIndex].position - transform.position;
@@ -22,9 +24,6 @@ public class PathFollowerController : MonoBehaviour {
 
         if (Vector3.Distance(transform.position, _points[_pathIndex].position) <= 0.4f)
 		    _pathIndex++;
-
-        if (_pathIndex == _points.Length)
-            Destroy(gameObject);
     }
 
     public void SetPath(GameObject _pathContainer) {

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour, IBullet
@@ -37,7 +36,7 @@ public class Bullet : MonoBehaviour, IBullet
         
         IDamageable damagable = collider.gameObject.GetComponent<IDamageable>();
         if (damagable != null) {
-            EventQueueManager.instance.AddEvent(new CmdApplyDamage(damagable, _damage));
+            CommandQueue.instance.AddEvent(new CmdApplyDamage(damagable, _damage));
         }
 
         if (_impactEffect != null) {

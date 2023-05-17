@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventQueueManager : MonoBehaviour {
-    static public EventQueueManager instance;
+public class CommandQueue : MonoBehaviour {
+    static public CommandQueue instance;
 
     private List<ICommand> _events = new List<ICommand>();
     private Queue<ICommand> _eventQueue = new Queue<ICommand>();
