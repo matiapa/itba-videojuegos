@@ -2,12 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(WaveManager))]
 public class GameManager : MonoBehaviour {
     [SerializeField] private int _initialLives;
     [SerializeField] private int _initialCoins;
     
     private int _lives;
     private int _coins;
+    private WaveManager _waveManager;
 
     public event Action<int> OnNetCoinChange;
     public event Action<int> OnNetLivesChange;
@@ -22,12 +24,19 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
+        _waveManager = GetComponent<WaveManager>();
+
         EventManager.instance.OnCoinChange += OnCoinChange;
         EventManager.instance.OnLivesChange += OnLivesChange;
         EventManager.instance.OnGameOver += OnGameOver;
 
         _lives = _initialLives;
         _coins = _initialCoins;
+    }
+
+    private void Update() {
+        if (_waveManager.LastWave && GameObject.FindObjectsOfType<Enemy>().Length == 0)
+            EventManager.instance.GameOver(true);
     }
 
     private void OnCoinChange(int coinChange) {
