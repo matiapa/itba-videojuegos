@@ -24,12 +24,14 @@ public class RangeAttackController : MonoBehaviour {
             GameObject nearestEnemy;
             
             if (_isEnemy)
-                nearestEnemy = GameObject.FindObjectsOfType<Turret>().Select(enemy => enemy.gameObject)
-                    .Where(enemy => Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
+                nearestEnemy = GameObject.FindObjectsOfType<Turret>()
+                    .Where(enemy => !enemy.IsDeath && Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
+                    .Select(enemy => enemy.gameObject)
                     .FirstOrDefault();
             else
-                nearestEnemy = GameObject.FindObjectsOfType<Enemy>().Select(enemy => enemy.gameObject)
-                    .Where(enemy => Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
+                nearestEnemy = GameObject.FindObjectsOfType<Enemy>()
+                    .Where(enemy => !enemy.IsDeath && Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
+                    .Select(enemy => enemy.gameObject)
                     .FirstOrDefault();
             
             if (nearestEnemy == null)

@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour {
     public event Action<int> OnCoinChange;
     public event Action<int, int> OnWaveChange;
     public event Action<GameObject> OnAttack;
+    public event Action<GameObject> OnEntityDeath;
 
     public void GameOver(bool isVictory)  {
         if (OnGameOver != null) OnGameOver(isVictory);
@@ -28,5 +29,10 @@ public class EventManager : MonoBehaviour {
 
     public void Attack(GameObject attacker) {
         if (OnAttack != null) OnAttack(attacker);
+    }
+
+    public void EntityDeath(GameObject entity)
+    {
+        if (OnEntityDeath != null) OnEntityDeath(entity);
     }
 }
