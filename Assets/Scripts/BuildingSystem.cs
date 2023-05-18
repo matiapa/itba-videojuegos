@@ -13,11 +13,15 @@ public class BuildingSystem : MonoBehaviour
     private void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 1000, layerMask))
+        if (Physics.Raycast(ray, out hit, 1000))
         {
-            // Get the node
-            actualPos = hit.transform.gameObject.transform.position;
+            IBuildHolder buildHolder = hit.transform.gameObject.GetComponent<IBuildHolder>();
+            if (buildHolder != null)
+            {
+                actualPos = hit.transform.gameObject.transform.position;
+            }
         }
+ 
     }
 
     private void Update()
@@ -30,22 +34,31 @@ public class BuildingSystem : MonoBehaviour
             return;
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(ray, out hit, 1000, layerMask))
+        if (!Physics.Raycast(ray, out hit, 1000))
             return;
 
+        IBuildHolder buildHolder = hit.transform.gameObject.GetComponent<IBuildHolder>();
+        if (buildHolder == null)
+            return;
+        
         float distanceThreshold = 2.0f; // Umbral de distancia
         if (Vector3.Distance(hit.transform.gameObject.transform.position, actualPos) > distanceThreshold)
             return;
 
-        Vector3 lastPos = pendingTurret.transform.position;
-        Quaternion lastRot = pendingTurret.transform.rotation;
-        Destroy(pendingTurret);
-        Instantiate(turrets[index], lastPos, lastRot);
-        pendingTurret = null;
+        int cost = turrets[index].gameObject.GetComponent<BuildController>().Cost;
+        if (GameManager.instance.Coins - cost >= 0)
+        {
+            Destroy(pendingTurret);
+            CmdBuild cmdBuild = new CmdBuild(buildHolder, turrets[index]);
+            CommandQueue.instance.AddEventToQueue(cmdBuild);
+            pendingTurret = null;
+        }
+        else
+        {
+            print("no te alcanza");
+        }
+        
     }
-
-
-
 
     public void SelectTurret(int index)
     {

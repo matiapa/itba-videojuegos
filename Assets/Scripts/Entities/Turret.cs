@@ -2,11 +2,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(FillingLifeController))]
 [RequireComponent(typeof(RangeAttackController))]
+[RequireComponent(typeof(BuildController))]
 [RequireComponent(typeof(AudioSource))]
 public class Turret : MonoBehaviour {
 
 	private FillingLifeController _fillingLifeController;
     private RangeAttackController _rangeAttackController;
+    private BuildController _buildController;
     public bool IsDead => _fillingLifeController.IsDead;
     public FillingLifeController A => _fillingLifeController;
     
@@ -18,6 +20,8 @@ public class Turret : MonoBehaviour {
         _fillingLifeController = GetComponent<FillingLifeController>();
 
         _rangeAttackController = GetComponent<RangeAttackController>();
+        _buildController = GetComponent<BuildController>();
+        _audioSource = GetComponent<AudioSource>();
         _rangeAttackController.SetIsEnemy(false);
 
         _audioSource = GetComponent<AudioSource>();
