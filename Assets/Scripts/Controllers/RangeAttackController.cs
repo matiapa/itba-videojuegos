@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -21,14 +22,14 @@ public class RangeAttackController : MonoBehaviour {
             _currentShotCooldown -= Time.deltaTime;
         
         if (_currentShotCooldown <= 0) {
-            GameObject nearestEnemy;
+            GameObject nearestEnemy = null;
             
-            if (_isEnemy)
+            if (_isEnemy) {
                 nearestEnemy = GameObject.FindObjectsOfType<Turret>()
                     .Where(enemy => !enemy.IsDead && Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
                     .Select(enemy => enemy.gameObject)
                     .FirstOrDefault();
-            else
+            } else
                 nearestEnemy = GameObject.FindObjectsOfType<Enemy>()
                     .Where(enemy => !enemy.IsDead && Vector3.Distance(transform.position, enemy.transform.position) <= _maxRange)
                     .Select(enemy => enemy.gameObject)

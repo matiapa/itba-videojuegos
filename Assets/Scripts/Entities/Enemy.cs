@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PathFollowerController))]
@@ -9,7 +8,7 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] private int _coinsEarnedOnDeath;
     [SerializeField] private int _livesRemovedOnArrival;
-    [SerializeField] private AudioClip _deathSound;
+    [SerializeField] private SoundStats _deathSound;
 
     private PathFollowerController _pathFollowerController;
     private BasicLifeController _basicLifeController;
@@ -40,7 +39,7 @@ public class Enemy : MonoBehaviour {
     private void OnDeath() {
         EventManager.instance.CoinChange(_coinsEarnedOnDeath);
 
-        _audioSource.PlayOneShot(_deathSound);
+        _audioSource.PlayOneShot(_deathSound.AudioClip);
         // TODO: animacion de muerte
         this._rangeAttackController.enabled = false;
         this.transform.position = new Vector3(this.transform.position.x, -200, transform.position.z);

@@ -30,8 +30,6 @@ public class BasicLifeController : MonoBehaviour, IDamageable {
             _hpBar.UpdateHealthBar(_currentLife);
 
         if(_currentLife <= 0)
-            OnDeath();
-
-        // print(this.gameObject.name+" - Current life: "+_currentLife);
+            if (OnDeath != null) OnDeath();
     }
 }

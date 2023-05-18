@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coinsEarnedOnDeath: 1
   _livesRemovedOnArrival: 1
-  _deathSound: {fileID: 8300000, guid: d4e60559dbadcf452b44a88502745e0a, type: 3}
+  _deathSound: {fileID: 11400000, guid: 97026d5956ed4bbad93ccf3aed50938f, type: 2}
 --- !u!4 &7386671581508144088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3433600713800986308, guid: 2e1d0dab735a65b5a8e1107cf07166ee, type: 3}
