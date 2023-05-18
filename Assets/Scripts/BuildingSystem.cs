@@ -26,7 +26,7 @@ public class BuildingSystem : MonoBehaviour
             return;
         pendingTurret.transform.position = actualPos;
         
-        if (!Input.GetMouseButtonDown(0))
+        if (Input.GetAxis("Click") <= 0)
             return;
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
