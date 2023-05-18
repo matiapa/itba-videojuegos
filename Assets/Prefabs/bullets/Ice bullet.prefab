@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4206042160014058967}
   - component: {fileID: 4095240304097268654}
   - component: {fileID: 2841381546614492817}
-  - component: {fileID: 5508581607711936081}
   - component: {fileID: -6626936455701083653}
+  - component: {fileID: 1265168847695597842}
   m_Layer: 0
   m_Name: Ice bullet
   m_TagString: Untagged
@@ -100,22 +100,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5508581607711936081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2382930891249438325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c895ef8bf7ec6e9bf00ce4566a0b16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 10
-  _speed: 30
-  _lifetime: 5
-  _impactEffect: {fileID: 0}
 --- !u!54 &-6626936455701083653
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,3 +116,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1265168847695597842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382930891249438325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b52f3c8320f4b5e85d5a6ee4cad76dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
+  _speed: 30
+  _lifetime: 5
+  _impactEffect: {fileID: 0}
+  _slowRate: 0.5
+  _slowDuration: 5

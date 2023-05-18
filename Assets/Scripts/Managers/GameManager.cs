@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour {
 
     public int Lives => _lives;
     public int Coins => _coins;
+
+    public int CurrentWave => _waveManager.CurrentWave;
+    public int MaxWave => _waveManager.MaxWave;
     static public GameManager instance;
 
     private void Awake() {

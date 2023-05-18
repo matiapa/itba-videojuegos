@@ -10,6 +10,8 @@ public class WaveManager : MonoBehaviour {
     private int _waveIndex = 0;
 
     public bool LastWave => _waveIndex == waves.Length;
+    public int CurrentWave => _waveIndex + 1;
+    public int MaxWave => waves.Length;
 
     void Start () {
         _countdown = waves[_waveIndex].countdown;
@@ -29,6 +31,7 @@ public class WaveManager : MonoBehaviour {
     }    
     
     IEnumerator SpawnWave () {
+        EventManager.instance.WaveChange(_waveIndex+1, waves.Length);
         Wave wave = waves[_waveIndex];
         
         for (int i = 0; i < wave.count; i++) {
@@ -39,7 +42,6 @@ public class WaveManager : MonoBehaviour {
         }
         
         _waveIndex++;
-        EventManager.instance.WaveChange(_waveIndex, waves.Length);
     }
 
     [System.Serializable]

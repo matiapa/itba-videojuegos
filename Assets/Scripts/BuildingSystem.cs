@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -13,6 +14,15 @@ public class BuildingSystem : MonoBehaviour
 
     [SerializeField] private AudioClip _notEnoughCoinsClip;
 
+    static public BuildingSystem instance;
+
+    public int[] TurretsCost => turrets.Select(
+        turretObject => turretObject.GetComponent<Turret>().GetComponent<BuildController>().Cost).ToArray();
+
+    private void Awake() {
+        if (instance != null) Destroy(this);
+        instance = this;
+    }
     private void Start() {
         _audioSource = GetComponent<AudioSource>();
     }
@@ -25,6 +35,10 @@ public class BuildingSystem : MonoBehaviour
             if (buildHolder != null)
             {
                 actualPos = hit.transform.gameObject.transform.position;
+            }
+            else
+            {
+                actualPos = Vector3.zero;
             }
         }
  

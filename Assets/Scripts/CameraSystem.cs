@@ -6,12 +6,9 @@ public class CameraSystem : MonoBehaviour {
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] private float followOffsetMinY = 10f;
     [SerializeField] private float followOffsetMaxY = 50f;
-
-    private bool dragPanMoveActive;
-    private Vector2 lastMousePosition;
+    
     private Vector3 followOffset;
-
-
+    
     private void Awake() {
         followOffset = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
     }

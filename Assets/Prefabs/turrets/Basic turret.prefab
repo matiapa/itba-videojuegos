@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3194196c87a47fb5a9b34de0bf485081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxRange: 50
+  _maxRange: 30
   _shotCooldown: 2
   _bulletPrefab: {fileID: 2382930891249438325, guid: e23dd98132a134f308b9829f103dd42d, type: 3}
   _isEnemy: 0
@@ -280,7 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed559b35ea3df16c391bce885edab8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canonShot: {fileID: 8300000, guid: d2b5c7ef8e5437d468c588cb1f98d785, type: 3}
+  _canonShot: {fileID: 11400000, guid: b99fa45e17692cc42baa9eef71e376dd, type: 2}
+  _deathSound: {fileID: 11400000, guid: 9c8c2aa3b3e327b47915c9d0bd370e14, type: 2}
 --- !u!114 &5073963508295049203
 MonoBehaviour:
   m_ObjectHideFlags: 0
