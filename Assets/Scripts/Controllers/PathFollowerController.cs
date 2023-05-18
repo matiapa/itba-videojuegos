@@ -38,16 +38,13 @@ public class PathFollowerController : MonoBehaviour, ISlowable {
     {
 	    if(_currentSpeed == speed)
 	    {
-		    print("aplico slow, speed antes: " + _currentSpeed);
 		    _currentSpeed *= _slowFactor;
-		    print("aplico slow, speed despues: " + _currentSpeed);
 		    Invoke("ResetSpeed", _slowDuration);
 	    }
     }
 
     private void ResetSpeed()
     {
-	    print("reseteo speed ");
 	    _currentSpeed = speed;
     }
 }

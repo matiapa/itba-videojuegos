@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour, IBullet
     [SerializeField] private float _lifetime = 5f;
     [SerializeField] private GameObject _impactEffect;
 
-    private GameObject _target;
+    protected GameObject _target;
 
     public float Damage => _damage;
     public float Speed => _speed;
