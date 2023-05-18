@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class BuildingSystem : MonoBehaviour
 {
     public GameObject[] turretsPreviews;
@@ -8,10 +9,15 @@ public class BuildingSystem : MonoBehaviour
     private GameObject pendingTurret;
     private RaycastHit hit;
     private Vector3 actualPos;
-    [SerializeField] private LayerMask layerMask;
+    private AudioSource _audioSource;
 
-    private void FixedUpdate()
-    {
+    [SerializeField] private AudioClip _notEnoughCoinsClip;
+
+    private void Start() {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
+    private void FixedUpdate() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 1000))
         {
@@ -24,15 +30,24 @@ public class BuildingSystem : MonoBehaviour
  
     }
 
-    private void Update()
-    {
-        if (pendingTurret == null)
-            return;
-        pendingTurret.transform.position = actualPos;
-        
-        if (Input.GetAxis("Click") <= 0)
-            return;
-        
+    private void Update() {
+        if (pendingTurret != null)
+            pendingTurret.transform.position = actualPos;
+
+        if (Input.GetButtonUp("Click"))
+            OnMouseUp();
+
+        if (Input.GetButtonUp("Tower 1"))
+            SelectTurret(0);
+
+        if (Input.GetButtonUp("Tower 2"))
+            SelectTurret(1);
+
+        if (Input.GetButtonUp("Tower 3"))
+            SelectTurret(2);
+    }
+
+    private void OnMouseUp() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out hit, 1000))
             return;
@@ -46,22 +61,18 @@ public class BuildingSystem : MonoBehaviour
             return;
 
         int cost = turrets[index].gameObject.GetComponent<BuildController>().Cost;
-        if (GameManager.instance.Coins - cost >= 0)
-        {
+        if (GameManager.instance.Coins - cost >= 0) {
             Destroy(pendingTurret);
             CmdBuild cmdBuild = new CmdBuild(buildHolder, turrets[index]);
             CommandQueue.instance.AddEventToQueue(cmdBuild);
             pendingTurret = null;
         }
-        else
-        {
-            print("no te alcanza");
+        else {
+            _audioSource.PlayOneShot(_notEnoughCoinsClip);
         }
-        
     }
 
-    public void SelectTurret(int index)
-    {
+    private void SelectTurret(int index) {
         this.index = index;
         if(pendingTurret != null)
             Destroy(pendingTurret);

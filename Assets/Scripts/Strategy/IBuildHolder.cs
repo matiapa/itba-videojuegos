@@ -2,5 +2,7 @@
 
 public interface IBuildHolder
 {
-    void PlaceBuild(GameObject objectToBuild);
+    GameObject Building { get; }
+
+    bool PlaceBuild(GameObject objectToBuild);
 }
