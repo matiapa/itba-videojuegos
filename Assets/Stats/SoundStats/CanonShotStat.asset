@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CanonShotStat
   m_EditorClassIdentifier: 
   _statValues:
-    AudioClip: {fileID: 8300000, guid: d4e60559dbadcf452b44a88502745e0a, type: 3}
+    AudioClip: {fileID: 8300000, guid: d2b5c7ef8e5437d468c588cb1f98d785, type: 3}

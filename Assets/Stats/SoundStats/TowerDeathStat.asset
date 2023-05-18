@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TowerDeathStat
   m_EditorClassIdentifier: 
   _statValues:
-    AudioClip: {fileID: 8300000, guid: d4e60559dbadcf452b44a88502745e0a, type: 3}
+    AudioClip: {fileID: 8300000, guid: ee3827c9f4b198449a7bce5cd7e2ab21, type: 3}
