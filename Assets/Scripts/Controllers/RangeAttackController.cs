@@ -49,7 +49,10 @@ public class RangeAttackController : MonoBehaviour {
             if (nearestEnemy == null)
                 return;
             
-            var bullet = Instantiate(_bulletPrefab, transform.position + Vector3.forward, transform.rotation);
+            Transform muzzle = gameObject.transform.Find("Muzzle");
+            if (muzzle == null)
+                muzzle = transform;
+            var bullet = Instantiate(_bulletPrefab, muzzle.position + Vector3.forward, muzzle.rotation);
             bullet.GetComponent<IBullet>().SetTarget(nearestEnemy);
             EventManager.instance.Attack(this.gameObject);
             
