@@ -24,6 +24,7 @@ public class WaveManager : MonoBehaviour {
         if (_countdown <= 0f) {
             StartCoroutine(SpawnWave());
             _countdown = (_waveIndex < waves.Length-1 ? waves[_waveIndex+1].countdown : 0) + waves[_waveIndex].Duration;
+            _waveIndex++;
             return;
         }
 
@@ -40,8 +41,6 @@ public class WaveManager : MonoBehaviour {
 
             yield return new WaitForSeconds(1f / wave.rate);
         }
-        
-        _waveIndex++;
     }
 
     [System.Serializable]

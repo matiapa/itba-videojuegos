@@ -129,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3433600713801151140, guid: 2e1d0dab735a65b5a8e1107cf07166ee, type: 3}
       propertyPath: m_Name
-      value: Skeleton Enemy 1
+      value: Skeleton Enemy 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e1d0dab735a65b5a8e1107cf07166ee, type: 3}
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72508166f5cd189cb9d53446f5ef158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLife: 60
+  _maxLife: 120
   _hpBar: {fileID: 2069858213016665153}
 --- !u!114 &6630493236653282506
 MonoBehaviour:
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinsEarnedOnDeath: 1
-  _livesRemovedOnArrival: 1
+  _livesRemovedOnArrival: 2
   _deathSound: {fileID: 11400000, guid: 97026d5956ed4bbad93ccf3aed50938f, type: 2}
 --- !u!4 &7386671581508144088 stripped
 Transform:

@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinsEarnedOnDeath: 1
-  _livesRemovedOnArrival: 1
+  _livesRemovedOnArrival: 2
   _deathSound: {fileID: 11400000, guid: fb6afb135c5461b0d992a5430f64f83e, type: 2}
 --- !u!114 &669220873463173260
 MonoBehaviour:
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868c4ed995829b4509c8611e2496d8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 25
   pathContainer: {fileID: 0}
 --- !u!114 &8528516242944178023
 MonoBehaviour:

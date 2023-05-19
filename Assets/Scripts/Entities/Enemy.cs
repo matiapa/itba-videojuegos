@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour {
         // TODO: animacion de muerte
         this._rangeAttackController.enabled = false;
         this.transform.position = new Vector3(this.transform.position.x, -200, transform.position.z);
-        Invoke("DestroyEnemy", 2f);
+        Invoke("DestroyEnemy", 5f);
     }
 
     private void DestroyEnemy() {

@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e8a18c22ef45b6b05e1fa7a3ed8232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
-  _speed: 30
+  _damage: 5
+  _speed: 50
   _lifetime: 30
   _impactEffect: {fileID: 0}
-  _poisonDamage: 10
-  _numTimes: 5
+  _poisonDamage: 5
+  _numTimes: 3
   _repeatInterval: 1
