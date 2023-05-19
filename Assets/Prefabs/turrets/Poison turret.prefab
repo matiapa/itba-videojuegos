@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac6f66eae73b209aa4e93a7e8e83700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLife: 350
+  _maxLife: 650
   _hpBar: {fileID: 3109016255658813310}
   _fillRate: 0.2
 --- !u!114 &1154621292432340150

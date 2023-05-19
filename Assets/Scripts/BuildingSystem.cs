@@ -25,6 +25,7 @@ public class BuildingSystem : MonoBehaviour
     }
     private void Start() {
         _audioSource = GetComponent<AudioSource>();
+        actualPos = Vector3.zero + new Vector3(0,-10,0);
     }
 
     private void FixedUpdate() {
@@ -38,7 +39,7 @@ public class BuildingSystem : MonoBehaviour
             }
             else
             {
-                actualPos = Vector3.zero;
+                actualPos = Vector3.zero + new Vector3(0,-10,0);
             }
         }
  

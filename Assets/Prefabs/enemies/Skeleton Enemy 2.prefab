@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxRange: 20
-  _shotCooldown: 2
+  _shotCooldown: 1
   _bulletPrefab: {fileID: 2382930891249438325, guid: e23dd98132a134f308b9829f103dd42d, type: 3}
   _isEnemy: 1
 --- !u!114 &4673388806054492934
@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  rotationSpeed: 5
   pathContainer: {fileID: 0}
 --- !u!114 &7236527009605397369
 MonoBehaviour:
