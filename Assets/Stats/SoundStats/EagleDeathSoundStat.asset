@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EagleDeathSoundStat
   m_EditorClassIdentifier: 
   _statValues:
-    AudioClip: {fileID: 8300000, guid: d4e60559dbadcf452b44a88502745e0a, type: 3}
+    AudioClip: {fileID: 8300000, guid: d6e93913547673e30b13e6e69b284336, type: 3}

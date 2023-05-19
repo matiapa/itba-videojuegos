@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: OrcDeathSoundStat
   m_EditorClassIdentifier: 
   _statValues:
-    AudioClip: {fileID: 8300000, guid: d4e60559dbadcf452b44a88502745e0a, type: 3}
+    AudioClip: {fileID: 8300000, guid: 44819fec193417b4ebe1b845c5f7d639, type: 3}
