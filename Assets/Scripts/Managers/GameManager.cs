@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
 
         if(OnNetLivesChange != null) OnNetLivesChange(_lives);
 
-        if(_lives < 0)
+        if(_lives <= 0)
             EventManager.instance.GameOver(false);
     }
 
